@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="MyFirstApp">
+<html>
 <head>
 	<title>Angular js</title>
-	 
+	 <script src="angular.js"></script> 
+	 <!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> -->
 	<script src="controller.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 </head>
 <body ng-controller="FirstController">
 
 	<h3>Posts</h3>
-	<ul>
-		<li ng-repeat="post in posts">
-			{{ post.title}} - <strong>{{post.body}}</strong>
-		</li>
-	</ul>
+	
+<div ng-app="miApp" ng-controller="miControlador">
+		<table>
+			<tr ng-repeat="post in posts">
+				<td>{{ post.nombre}}</td>
+				<td>{{ post.pais}}</td>
+			</tr>
+		</table>
+	</div>
+
 </body>
 </html>

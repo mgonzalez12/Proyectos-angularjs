@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular js</title>
+	<script src="angular.js"></script> 
+	 <!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> -->
+	<style type="text/css">
+		table, th, td{
+			border:1px solid grey;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+
+		table tr:nth-child(odd)
+		{
+			background-color: #f1f1f1;
+		}
+		table tr:nth-child(even)
+		{
+			background-color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+
+	<div ng-app="miApp" ng-controller="miControlador">
+		<table>
+			<tr ng-repeat="x in nombres">
+				<td>{{ x.ID}}</td>
+				<td>{{ x.Nombre}}</td>
+				<td>{{ x.pais}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		var app = angular.module('miApp', []);
+
+		app.controller('miControlador', function($scope,$http){
+			$http.get("http://localhost/proyectos/practica3/usuarios_paises.php")
+			.then(function(response){
+				console.log(response);
+				$scope.nombres = response.data.registros
+			});
+		});
+	</script>
+</body>
+</html>
